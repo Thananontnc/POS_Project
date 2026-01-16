@@ -35,6 +35,6 @@ A React-based Point of Sale (POS) application for managing sales transactions an
 ![Sales Journal Screenshot](screenshots/journal.png)
 
 ## 👤 Team Members
-- Thananon Chounudom
-- Prathomporn Bunjua
-- Wipob Jindapornsuk
+- Thananon Chounudom 6711424
+- Prathomporn Bunjua 6710990
+- Wipob Jindapornsuk 6710681
