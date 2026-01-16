@@ -36,3 +36,5 @@ A React-based Point of Sale (POS) application for managing sales transactions an
 
 ## 👤 Team Members
 - Thananon Chounudom
+- Prathomporn Bunjua
+- Wipob Jindapornsuk
