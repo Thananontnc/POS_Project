@@ -16,16 +16,16 @@
 }
 
 [data-theme='light'] {
-  --bg-color: #f0f9ff;
+  --bg-color: #f8fafc;
   --text-primary: #0f172a;
   --text-secondary: #475569;
   --accent-color: #0284c7;
   --accent-hover: #0369a1;
-  --card-bg: rgba(255, 255, 255, 0.8);
-  --card-border: rgba(203, 213, 225, 0.6);
+  --card-bg: rgba(255, 255, 255, 0.9);
+  --card-border: rgba(203, 213, 225, 0.8);
   --table-row-hover: rgba(2, 132, 199, 0.05);
-  --gradient-1: rgba(56, 189, 248, 0.08);
-  --gradient-2: rgba(168, 85, 247, 0.08);
+  --gradient-1: rgba(56, 189, 248, 0.1);
+  --gradient-2: rgba(168, 85, 247, 0.1);
 }
 
 body {
@@ -94,7 +94,7 @@ button {
 }
 
 .btn-secondary {
-  background: rgba(255, 255, 255, 0.05);
+  background: var(--card-bg);
   color: var(--text-primary);
   border: 1px solid var(--card-border);
   font-weight: 500;
@@ -104,11 +104,12 @@ button {
 }
 
 .btn-secondary:hover {
-  background: rgba(255, 255, 255, 0.1);
+  background: var(--table-row-hover);
+  border-color: var(--accent-color);
 }
 
 .input-field {
-  background: rgba(15, 23, 42, 0.6);
+  background: var(--card-bg);
   border: 1px solid var(--card-border);
   color: var(--text-primary);
   padding: 0.75rem;
@@ -171,7 +172,7 @@ button {
   flex-direction: column;
   gap: 2rem;
   border-right: 1px solid var(--card-border);
-  background: rgba(15, 23, 42, 0.5);
+  background: var(--card-bg);
   backdrop-filter: blur(10px);
   position: fixed;
   height: 100vh;
