@@ -8,7 +8,7 @@ A React-based Point of Sale (POS) website for managing sales transactions and vi
 ## ✨ Features
 
 ### Dashboard
-- **Total Sales**: View all-time revenue.
+- **Total Sales**: Show total sales of all time.
 - **Sales Trends**: Visualize daily and monthly sales performance with interactive line charts.
 - **Category Analysis**: Pie chart showing sales distribution by product category.
 - **Top Products**: List of top 5 best-selling items.
@@ -33,5 +33,5 @@ A React-based Point of Sale (POS) website for managing sales transactions and vi
 ![Sales Journal Screenshot](screenshots/journal.png)
 
 ## 👤 Team Members
-- Thananon Chounudom 6711424
-- Prathomporn Bunjua 6710990
+- 6711424 Thananon Chounudom 
+- 6710990 Prathomporn Bunjua 
