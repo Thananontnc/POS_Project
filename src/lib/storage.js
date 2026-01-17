@@ -26,3 +26,4 @@ export const addTransaction = (transaction) => {
 export const clearTransactions = () => {
     localStorage.removeItem(STORAGE_KEY);
 };
+// Helper functions
