@@ -18,12 +18,6 @@ const Dashboard = () => {
     }, []);
 
     const filteredTransactions = useMemo(() => {
-        // This is for the "Sales Summary for Selected Period" requirement.
-        // We will calculate a specific total according to the *latest* data point logic or similar?
-        // Actually, "Show sales summary for selected period" usually means the total of the *current* view or the aggregate.
-        // Let's interpret it as: Total Sales in the chart view (e.g. Total Sales All Time vs Total Sales of Viewed Data).
-        // Since we show all data grouped, "Visualizing sales trends" covers the period aspect.
-        // But let's add a "Sales (Current View)" card.
         return transactions;
     }, [transactions]);
 
@@ -148,12 +142,18 @@ const Dashboard = () => {
                     <h3 style={{ marginBottom: '1.5rem' }}>Sales Trends ({period})</h3>
                     <ResponsiveContainer width="100%" height="100%">
                         <LineChart data={trendData.chart}>
-                            <CartesianGrid strokeDasharray="3 3" stroke="rgba(255,255,255,0.1)" />
+                            <CartesianGrid strokeDasharray="3 3" stroke="var(--card-border)" />
                             <XAxis dataKey="name" stroke="var(--text-secondary)" tick={{ fontSize: 12 }} />
                             <YAxis stroke="var(--text-secondary)" tick={{ fontSize: 12 }} />
                             <RechartsTooltip
-                                contentStyle={{ backgroundColor: '#1e293b', borderColor: 'rgba(255,255,255,0.1)', color: '#fff' }}
-                                itemStyle={{ color: '#fff' }}
+                                contentStyle={{
+                                    backgroundColor: 'var(--card-bg)',
+                                    borderColor: 'var(--card-border)',
+                                    color: 'var(--text-primary)',
+                                    borderRadius: '8px',
+                                    backdropFilter: 'blur(8px)'
+                                }}
+                                itemStyle={{ color: 'var(--text-primary)' }}
                             />
                             <Line type="monotone" dataKey="sales" stroke="var(--accent-color)" strokeWidth={3} dot={{ r: 4, strokeWidth: 2 }} activeDot={{ r: 8 }} />
                         </LineChart>
@@ -168,10 +168,10 @@ const Dashboard = () => {
                     <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
                         {topProducts.length === 0 ? <p style={{ color: 'var(--text-secondary)' }}>No sales data yet.</p> : null}
                         {topProducts.map((item, index) => (
-                            <div key={item.name} style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', paddingBottom: '0.75rem', borderBottom: '1px solid rgba(255,255,255,0.05)' }}>
+                            <div key={item.name} style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', paddingBottom: '0.75rem', borderBottom: '1px solid var(--card-border)' }}>
                                 <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
                                     <span style={{
-                                        width: '24px', height: '24px', borderRadius: '50%', background: 'rgba(255,255,255,0.1)',
+                                        width: '24px', height: '24px', borderRadius: '50%', background: 'var(--table-row-hover)',
                                         display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '0.75rem', fontWeight: 'bold'
                                     }}>
                                         {index + 1}
@@ -205,7 +205,13 @@ const Dashboard = () => {
                                     <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
                                 ))}
                             </Pie>
-                            <RechartsTooltip contentStyle={{ backgroundColor: '#1e293b', borderColor: 'rgba(255,255,255,0.1)' }} />
+                            <RechartsTooltip contentStyle={{
+                                backgroundColor: 'var(--card-bg)',
+                                borderColor: 'var(--card-border)',
+                                color: 'var(--text-primary)',
+                                borderRadius: '8px',
+                                backdropFilter: 'blur(8px)'
+                            }} />
                             <Legend />
                         </PieChart>
                     </ResponsiveContainer>
@@ -218,7 +224,7 @@ const Dashboard = () => {
 
 const StatCard = ({ icon, title, value }) => (
     <div className="glass-panel" style={{ padding: '1.5rem', display: 'flex', alignItems: 'center', gap: '1rem' }}>
-        <div style={{ padding: '1rem', background: 'rgba(255,255,255,0.03)', borderRadius: '0.75rem' }}>
+        <div style={{ padding: '1rem', background: 'var(--table-row-hover)', borderRadius: '0.75rem' }}>
             {icon}
         </div>
         <div>

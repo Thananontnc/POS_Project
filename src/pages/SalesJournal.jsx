@@ -118,7 +118,7 @@ const SalesJournal = () => {
                             </div>
                         </div>
 
-                        <div style={{ background: 'rgba(0,0,0,0.2)', padding: '1rem', borderRadius: '0.5rem', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                        <div style={{ background: 'var(--table-row-hover)', padding: '1rem', borderRadius: '0.5rem', display: 'flex', justifyContent: 'space-between', alignItems: 'center', border: '1px solid var(--card-border)' }}>
                             <span style={{ color: 'var(--text-secondary)' }}>Total Price</span>
                             <span style={{ fontSize: '1.25rem', fontWeight: '600', color: 'var(--accent-color)' }}>
                                 {calculatedTotal.toLocaleString()} THB
@@ -155,7 +155,7 @@ const SalesJournal = () => {
                                     </tr>
                                 ) : (
                                     filteredTransactions.map((tx) => (
-                                        <tr key={tx.id} style={{ borderBottom: '1px solid rgba(255,255,255,0.02)', transition: 'background 0.2s' }}>
+                                        <tr key={tx.id} style={{ borderBottom: '1px solid var(--card-border)', transition: 'background 0.2s' }}>
                                             <td style={{ padding: '1rem' }}>{tx.date}</td>
                                             <td style={{ padding: '1rem', fontWeight: '500' }}>{tx.itemName}</td>
                                             <td style={{ padding: '1rem', opacity: 0.7 }}>{tx.category}</td>
