@@ -64,7 +64,6 @@ const Layout = ({ children }) => {
                         <span>{theme === 'dark' ? 'Light Mode' : 'Dark Mode'}</span>
                     </button>
                     <div style={{ color: 'var(--text-secondary)', fontSize: '0.75rem', textAlign: 'center' }}>
-                        <p>© 2024 POS Inc.</p>
                     </div>
                 </div>
             </aside>
