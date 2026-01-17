@@ -2,8 +2,8 @@
   --bg-color: #0f172a;
   --text-primary: #f8fafc;
   --text-secondary: #94a3b8;
-  --accent-color: #38bdf8;
-  --accent-hover: #0ea5e9;
+  --accent-color: #0ea5e9;
+  --accent-hover: #0284c7;
   --card-bg: rgba(30, 41, 59, 0.7);
   --card-border: rgba(255, 255, 255, 0.1);
   --table-row-hover: rgba(56, 189, 248, 0.05);
@@ -11,6 +11,21 @@
   --danger: #ef4444;
   --warning: #eab308;
   --font-family: 'Inter', system-ui, sans-serif;
+  --gradient-1: rgba(56, 189, 248, 0.15);
+  --gradient-2: rgba(168, 85, 247, 0.15);
+}
+
+[data-theme='light'] {
+  --bg-color: #f0f9ff;
+  --text-primary: #0f172a;
+  --text-secondary: #475569;
+  --accent-color: #0284c7;
+  --accent-hover: #0369a1;
+  --card-bg: rgba(255, 255, 255, 0.8);
+  --card-border: rgba(203, 213, 225, 0.6);
+  --table-row-hover: rgba(2, 132, 199, 0.05);
+  --gradient-1: rgba(56, 189, 248, 0.08);
+  --gradient-2: rgba(168, 85, 247, 0.08);
 }
 
 body {
@@ -21,9 +36,9 @@ body {
   font-family: var(--font-family);
   -webkit-font-smoothing: antialiased;
   min-height: 100vh;
-  background-image: 
-    radial-gradient(at 0% 0%, rgba(56, 189, 248, 0.15) 0px, transparent 50%),
-    radial-gradient(at 100% 0%, rgba(168, 85, 247, 0.15) 0px, transparent 50%);
+  background-image:
+    radial-gradient(at 0% 0%, var(--gradient-1) 0px, transparent 50%),
+    radial-gradient(at 100% 0%, var(--gradient-2) 0px, transparent 50%);
   background-attachment: fixed;
 }
 
@@ -31,7 +46,12 @@ body {
   box-sizing: border-box;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   margin: 0;
   font-weight: 600;
   letter-spacing: -0.025em;
@@ -108,13 +128,16 @@ button {
   width: 8px;
   height: 8px;
 }
+
 ::-webkit-scrollbar-track {
   background: transparent;
 }
+
 ::-webkit-scrollbar-thumb {
   background: var(--card-border);
   border-radius: 4px;
 }
+
 ::-webkit-scrollbar-thumb:hover {
   background: var(--text-secondary);
 }
@@ -124,8 +147,15 @@ button {
 }
 
 @keyframes fadeIn {
-  from { opacity: 0; transform: translateY(10px); }
-  to { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* Layout */
@@ -166,7 +196,8 @@ button {
   transition: all 0.2s;
 }
 
-.nav-item:hover, .nav-item.active {
+.nav-item:hover,
+.nav-item.active {
   background: rgba(56, 189, 248, 0.1);
   color: var(--accent-color);
 }
@@ -174,5 +205,6 @@ button {
 .card {
   padding: 1.5rem;
 }
+
 /* UI Enhancement */
 /* Final Polish */
