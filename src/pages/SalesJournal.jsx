@@ -11,6 +11,8 @@ const SalesJournal = () => {
     const [saleDate, setSaleDate] = useState(new Date().toISOString().split('T')[0]);
     const [searchTerm, setSearchTerm] = useState('');
 
+    const [showSuggestions, setShowSuggestions] = useState(false);
+
     useEffect(() => {
         setTransactions(getTransactions());
     }, []);
@@ -36,7 +38,19 @@ const SalesJournal = () => {
         setTransactions([newTx, ...transactions]);
 
         setQuantity(1);
+        setSelectedProduct('');
+        setSearchTerm('');
     };
+
+    const handleSelectProduct = (product) => {
+        setSelectedProduct(product.itemName);
+        setSearchTerm(product.itemName);
+        setShowSuggestions(false);
+    };
+
+    const suggestions = products.filter(p =>
+        p.itemName.toLowerCase().includes(searchTerm.toLowerCase())
+    );
 
     const filteredTransactions = transactions.sort((a, b) => new Date(b.date) - new Date(a.date));
 
@@ -60,38 +74,51 @@ const SalesJournal = () => {
 
                     <form onSubmit={handleAdd} style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
 
-                        <div>
-                            <label style={{ display: 'block', marginBottom: '0.5rem', fontSize: '0.875rem' }}>Search Product</label>
+                        <div style={{ position: 'relative' }}>
+                            <label style={{ display: 'block', marginBottom: '0.5rem', fontSize: '0.875rem' }}>Search and Select Product</label>
                             <div style={{ position: 'relative' }}>
                                 <Search size={16} style={{ position: 'absolute', left: '10px', top: '12px', color: 'var(--text-secondary)' }} />
                                 <input
                                     type="text"
-                                    placeholder="Filter products..."
+                                    placeholder="Type to search..."
                                     className="input-field"
                                     style={{ paddingLeft: '2.5rem' }}
                                     value={searchTerm}
-                                    onChange={(e) => setSearchTerm(e.target.value)}
+                                    onChange={(e) => {
+                                        setSearchTerm(e.target.value);
+                                        setShowSuggestions(true);
+                                        // Clear selection if user types something else
+                                        if (selectedProduct && e.target.value !== selectedProduct) {
+                                            setSelectedProduct('');
+                                        }
+                                    }}
+                                    onFocus={() => setShowSuggestions(true)}
+                                    required
                                 />
                             </div>
-                        </div>
 
-                        <div>
-                            <label style={{ display: 'block', marginBottom: '0.5rem', fontSize: '0.875rem' }}>Select Item</label>
-                            <select
-                                className="input-field"
-                                value={selectedProduct}
-                                onChange={e => setSelectedProduct(e.target.value)}
-                                required
-                            >
-                                <option value="">-- Choose Product --</option>
-                                {products
-                                    .filter(p => p.itemName.toLowerCase().includes(searchTerm.toLowerCase()))
-                                    .map(p => (
-                                        <option key={p.itemName} value={p.itemName}>
-                                            {p.itemName} ({p.unitPrice} THB)
-                                        </option>
-                                    ))}
-                            </select>
+                            {showSuggestions && searchTerm && (
+                                <div className="suggestions-list">
+                                    {suggestions.length > 0 ? (
+                                        suggestions.map(p => (
+                                            <div
+                                                key={p.itemName}
+                                                className="suggestion-item"
+                                                onClick={() => handleSelectProduct(p)}
+                                            >
+                                                <span>{p.itemName}</span>
+                                                <span>{p.unitPrice} THB</span>
+                                            </div>
+                                        ))
+                                    ) : (
+                                        <div style={{ padding: '0.75rem 1rem', color: 'var(--text-secondary)', fontSize: '0.875rem' }}>
+                                            No products found
+                                        </div>
+                                    )}
+                                </div>
+                            )}
+
+                            {/* Close suggestions when clicking outside would be ideal, but for now a simple Blur might work or just let it stay until select */}
                         </div>
 
                         <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem' }}>
@@ -125,7 +152,12 @@ const SalesJournal = () => {
                             </span>
                         </div>
 
-                        <button type="submit" className="btn-primary" style={{ width: '100%', justifyContent: 'center' }}>
+                        <button
+                            type="submit"
+                            className="btn-primary"
+                            style={{ width: '100%', justifyContent: 'center' }}
+                            disabled={!selectedProduct}
+                        >
                             Record Transaction
                         </button>
 

@@ -36,9 +36,8 @@ const Dashboard = () => {
             if (period === 'monthly') {
                 key = tx.date.substring(0, 7); // YYYY-MM
             } else if (period === 'weekly') {
-                // ISO Week
                 const date = parseISO(tx.date);
-                key = format(startOfWeek(date), 'yyyy-MM-dd'); // Group by start of week
+                key = format(startOfWeek(date), 'yyyy-MM-dd');
             }
             // daily is default (YYYY-MM-DD)
 
