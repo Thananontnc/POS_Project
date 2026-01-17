@@ -1,6 +1,6 @@
 # POS Web Application
 
-A React-based Point of Sale (POS) application for managing sales transactions and visualizing performance.
+A React-based Point of Sale (POS) website for managing sales transactions and visualizing performance.
 
 ## 🚀 Live Demo
 [GitHub Page URL](https://thananontnc.github.io/POS_Project/)
@@ -21,10 +21,8 @@ A React-based Point of Sale (POS) application for managing sales transactions an
 
 ## 🛠 Tech Stack
 - **Frontend**: React JS, Vite
-- **Styling**: Vanilla CSS (Premium Dark Theme, Glassmorphism)
+- **Styling**: CSS
 - **Charts**: Recharts
-- **Icons**: Lucide React
-- **Data Persistence**: Local Storage
 
 ## 📸 Screenshots
 
@@ -37,5 +35,3 @@ A React-based Point of Sale (POS) application for managing sales transactions an
 ## 👤 Team Members
 - Thananon Chounudom 6711424
 - Prathomporn Bunjua 6710990
-- Wipob Jindapornsuk 6710681
- 
