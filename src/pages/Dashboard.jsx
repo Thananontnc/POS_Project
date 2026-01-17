@@ -229,3 +229,4 @@ const StatCard = ({ icon, title, value }) => (
 );
 
 export default Dashboard;
+// Dashboard logic
