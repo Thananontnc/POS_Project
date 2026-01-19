@@ -76,3 +76,5 @@ const Layout = ({ children }) => {
 };
 
 export default Layout;
+
+// TODO: Refactor theme toggle logic for better performance
