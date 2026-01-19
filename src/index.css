@@ -308,3 +308,5 @@ button {
 /* Main Layout Styles - Section */
 
 /* Main Layout Styles - Section */
+
+.debug-helper { outline: 1px solid red; display: none; }
