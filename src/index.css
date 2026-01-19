@@ -1,31 +1,38 @@
 :root {
-  --bg-color: #0f172a;
-  --text-primary: #f8fafc;
-  --text-secondary: #94a3b8;
-  --accent-color: #0ea5e9;
-  --accent-hover: #0284c7;
-  --card-bg: rgba(30, 41, 59, 0.7);
-  --card-border: rgba(255, 255, 255, 0.1);
-  --table-row-hover: rgba(56, 189, 248, 0.05);
-  --success: #22c55e;
-  --danger: #ef4444;
-  --warning: #eab308;
-  --font-family: 'Inter', system-ui, sans-serif;
-  --gradient-1: rgba(56, 189, 248, 0.15);
-  --gradient-2: rgba(168, 85, 247, 0.15);
+  --bg-color: #FFFF00;
+  /* Bright Yellow Background */
+  --text-primary: #FF0000;
+  /* Red Text */
+  --text-secondary: #0000FF;
+  /* Blue Text */
+  --accent-color: #00FF00;
+  /* Lime Green Accent */
+  --accent-hover: #FF00FF;
+  /* Magenta Hover */
+  --card-bg: #E0E0E0;
+  /* Grey boxes */
+  --card-border: #000000;
+  --table-row-hover: #FFA500;
+  --success: #00FF00;
+  --danger: #FF0000;
+  --warning: #CC0000;
+  --font-family: 'Comic Sans MS', 'Chalkboard SE', 'Comic Neue', sans-serif;
+  /* The worst font */
+  --gradient-1: red;
+  --gradient-2: blue;
 }
 
 [data-theme='light'] {
-  --bg-color: #f8fafc;
-  --text-primary: #0f172a;
-  --text-secondary: #475569;
-  --accent-color: #0284c7;
-  --accent-hover: #0369a1;
-  --card-bg: rgba(255, 255, 255, 0.9);
-  --card-border: rgba(203, 213, 225, 0.8);
-  --table-row-hover: rgba(2, 132, 199, 0.05);
-  --gradient-1: rgba(56, 189, 248, 0.1);
-  --gradient-2: rgba(168, 85, 247, 0.1);
+  --bg-color: #00FFFF;
+  --text-primary: #000000;
+  --text-secondary: #0000FF;
+  --accent-color: #FF0000;
+  --accent-hover: #00FF00;
+  --card-bg: #FFFFFF;
+  --card-border: #000000;
+  --table-row-hover: #FFFF00;
+  --gradient-1: yellow;
+  --gradient-2: pink;
 }
 
 body {
@@ -34,16 +41,15 @@ body {
   background-color: var(--bg-color);
   color: var(--text-primary);
   font-family: var(--font-family);
-  -webkit-font-smoothing: antialiased;
   min-height: 100vh;
-  background-image:
-    radial-gradient(at 0% 0%, var(--gradient-1) 0px, transparent 50%),
-    radial-gradient(at 100% 0%, var(--gradient-2) 0px, transparent 50%);
-  background-attachment: fixed;
+  /* Bad gradient background */
+  background-image: linear-gradient(to bottom right, red, yellow, green, blue);
 }
 
 * {
   box-sizing: border-box;
+  /* The ultimate beginner mistake: Debug borders everywhere */
+  border: 2px solid cyan !important;
 }
 
 h1,
@@ -52,190 +58,153 @@ h3,
 h4,
 h5,
 h6 {
-  margin: 0;
-  font-weight: 600;
-  letter-spacing: -0.025em;
+  margin: 10px;
+  font-weight: bold;
+  text-decoration: underline;
+  text-transform: uppercase;
+  background-color: white;
+  color: black !important;
+  display: inline-block;
 }
 
 button {
   cursor: pointer;
-  border: none;
-  background: none;
-  font-family: inherit;
+  border: 5px ridge gold !important;
+  background: silver;
+  font-family: 'Times New Roman', serif;
+  font-size: 20px;
+  padding: 20px;
+  margin: 10px;
 }
 
 .glass-panel {
-  background: var(--card-bg);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid var(--card-border);
-  border-radius: 1rem;
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  background: blue;
+  /* Removed glass effect, just solid blue */
+  border: 5px dashed red !important;
+  border-radius: 0;
 }
 
 .btn-primary {
   background: var(--accent-color);
-  color: #0f172a;
-  font-weight: 600;
-  padding: 0.5rem 1rem;
-  border-radius: 0.5rem;
-  transition: all 0.2s;
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  justify-content: center;
+  color: black;
+  font-weight: bold;
+  padding: 1rem;
+  border-radius: 50px;
+  /* Weird pill shape */
+  box-shadow: 5px 5px 0px black;
+  /* Hard shadow */
 }
 
 .btn-primary:hover {
-  background: var(--accent-hover);
-  transform: translateY(-1px);
-  box-shadow: 0 4px 12px var(--table-row-hover);
+  background: yellow;
+  transform: rotate(5deg);
+  /* Dizzy effect */
 }
 
 .btn-secondary {
-  background: var(--card-bg);
-  color: var(--text-primary);
-  border: 1px solid var(--card-border);
-  font-weight: 500;
-  padding: 0.5rem 1rem;
-  border-radius: 0.5rem;
-  transition: all 0.2s;
+  background: pink;
+  color: green;
+  border: 3px dotted purple !important;
+  padding: 5px;
 }
 
 .btn-secondary:hover {
-  background: var(--table-row-hover);
-  border-color: var(--accent-color);
+  background: orange;
+  font-size: 25px;
+  /* Text jumps in size */
 }
 
 .input-field {
-  background: var(--card-bg);
-  border: 1px solid var(--card-border);
-  color: var(--text-primary);
-  padding: 0.75rem;
-  border-radius: 0.5rem;
-  width: 100%;
-  transition: all 0.2s;
+  background: white;
+  border: 4px solid black !important;
+  color: red;
+  padding: 10px;
+  font-size: 20px;
+  width: 90%;
+  /* Imperfect width */
 }
 
 .input-field:focus {
-  outline: none;
-  border-color: var(--accent-color);
-  box-shadow: 0 0 0 2px rgba(56, 189, 248, 0.2);
+  background: black;
+  color: white;
 }
 
+/* Scrollbar? Who needs a nice scrollbar */
 ::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
+  width: 20px;
 }
 
 ::-webkit-scrollbar-track {
-  background: transparent;
+  background: red;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--card-border);
-  border-radius: 4px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: var(--text-secondary);
+  background: blue;
+  border-radius: 0;
 }
 
 .fade-in {
-  animation: fadeIn 0.5s ease-out forwards;
-}
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(10px);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  /* No animation needed */
 }
 
 .layout-container {
-  display: flex;
-  min-height: 100vh;
+  display: block;
+  /* Broken flex layout */
 }
 
 .sidebar {
-  width: 260px;
-  padding: 1.5rem;
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
-  border-right: 1px solid var(--card-border);
-  background: var(--card-bg);
-  backdrop-filter: blur(10px);
-  position: fixed;
-  height: 100vh;
+  width: 100%;
+  /* Sidebar takes full width now */
+  padding: 10px;
+  display: block;
+  border-bottom: 5px double black;
+  background: orange;
+  position: relative;
+  height: auto;
   z-index: 100;
 }
 
 .main-content {
-  flex: 1;
-  margin-left: 260px;
-  padding: 2rem;
-  max-width: 1600px;
+  margin-left: 0;
+  padding: 5px;
+  max-width: 100%;
 }
 
 .nav-item {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-  padding: 0.75rem 1rem;
-  border-radius: 0.5rem;
-  color: var(--text-secondary);
-  text-decoration: none;
-  transition: all 0.2s;
+  display: inline-block;
+  /* Horizontal nav items in a mess */
+  padding: 10px;
+  margin: 5px;
+  background: white;
+  color: black;
+  border: 1px solid black;
 }
 
 .nav-item:hover,
 .nav-item.active {
-  background: rgba(56, 189, 248, 0.1);
-  color: var(--accent-color);
+  background: yellow;
+  color: red;
+  font-size: 30px;
+  /* Explodes on hover */
 }
 
 .card {
-  padding: 1.5rem;
+  padding: 5px;
+  background: lime;
+  color: purple;
 }
 
-/* Suggestions List */
 .suggestions-list {
-  position: absolute;
-  top: 100%;
-  left: 0;
-  right: 0;
-  z-index: 1000;
-  margin-top: 0.5rem;
-  max-height: 200px;
-  overflow-y: auto;
-  background: var(--card-bg);
-  backdrop-filter: blur(12px);
-  border: 1px solid var(--card-border);
-  border-radius: 0.5rem;
-  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  background: black;
+  color: white;
+  border: 5px solid yellow !important;
 }
 
 .suggestion-item {
-  padding: 0.75rem 1rem;
-  cursor: pointer;
-  transition: all 0.2s;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  padding: 10px;
+  border-bottom: 1px solid white !important;
 }
 
 .suggestion-item:hover {
-  background: var(--table-row-hover);
-  color: var(--accent-color);
-}
-
-.suggestion-item span:last-child {
-  font-size: 0.75rem;
-  color: var(--text-secondary);
+  background: red;
 }
