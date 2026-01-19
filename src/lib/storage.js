@@ -1,3 +1,7 @@
+/**
+ * Local storage utility functions
+ * Handles data persistence for the POS system
+ */
 import posItems from '../data/pos_item.json';
 
 const STORAGE_KEY = 'pos_transactions';
