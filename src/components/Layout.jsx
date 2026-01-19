@@ -1,3 +1,4 @@
+// Layout wrapper for consistent page structure
 import React, { useState, useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
 import { LayoutDashboard, ReceiptText, Store, Sun, Moon } from 'lucide-react';
