@@ -1,6 +1,6 @@
 # POS Web Application
 
-A React-based Point of Sale (POS) website for managing sales transactions and visualizing performance.
+Point of Sale (POS) website for managing sales transactions and visualizing performance.
 
 ## 🚀 Live Demo
 [GitHub Page URL](https://thananontnc.github.io/POS_Project_Deploy/)
