@@ -35,7 +35,3 @@ A React-based Point of Sale (POS) website for managing sales transactions and vi
 ## 👤 Team Members
 - 6711424 Thananon Chounudom 
 - 6710990 Prathomporn Bunjua 
-
-
-## Project Status
-Ongoing development.
